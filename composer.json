@@ -1,5 +1,5 @@
 {
-  "name": "PhpToyFramework",
+  "name": "phptoyframework",
   "version": "0.1.0",
   "description": "php toy Framework",
   "autoload": {
