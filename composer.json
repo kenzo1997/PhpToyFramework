@@ -1,7 +1,9 @@
 {
-  "name": "phptoyframework",
+  "name": "phptoy/framework",
+  "description": "php toy framework",
   "version": "0.1.0",
-  "description": "php toy Framework",
+  "type": "library",
+  "description": "",
   "autoload": {
       "classmap": [
           "src/"
