@@ -41,5 +41,53 @@ final class SQLBuilderTest extends TestCase {
         "INSERT INTO users(name, age, weight, height) VALUES (bob, 12, 250, 122)"
       );
     }
+
+    public function testUpdateStatement(): void {
+      $sql = new SQLBuilder();
+
+      $this->assertEquals(
+        $sql->UPDATE('users', ['name' => 'rob'])->go(),
+        "UPDATE users SET name=rob"
+      );
+    }
+
+    public function testDeleteStatement(): void {
+      $sql = new SQLBuilder();
+
+      $this->assertEquals(
+          $sql->DELETE('users')->go(),
+          "DELETE FROM users"
+      );
+    }
+
+    public function testInnerJoinStatement(): void {
+      $sql = new SQLBuilder();
+      $res = $sql->SELECT('users')
+                 ->INNER_JOIN('clubs')
+                 ->USING('name')
+                 ->go();
+
+      $this->assertEquals($res, "SELECT * FROM users INNER JOIN clubs USING(name)");
+    }
+
+    public function testLeftOuterJoinStatemenet(): void {
+      $sql = new SQLBuilder();
+      $res = $sql->SELECT('users')
+                 ->LEFT_OUTER_JOIN('clubs')
+                 ->USING('name')
+                 ->go();
+
+      $this->assertEquals($res, "SELECT * FROM users LEFT OUTER JOIN clubs USING(name)");
+    }
+
+    public function testRightOuterJoinStatemenet(): void {
+      $sql = new SQLBuilder();
+      $res = $sql->SELECT('users')
+                 ->RIGHT_OUTER_JOIN('clubs')
+                 ->USING('name')
+                 ->go();
+
+      $this->assertEquals($res, "SELECT * FROM users RIGHT OUTER JOIN clubs USING(name)");
+    }
 }
 ?>

@@ -49,6 +49,42 @@ class SQLBuilder {
       return $this;
   }
 
+  public function UPDATE($table, $values) {
+    $this->sql .= 'UPDATE ' . $this->sanitizeData($table) . ' SET ';
+
+    foreach($values as $key => $value) {
+        $this->sql .= $this->sanitizeData($key) . '=' . $this->sanitizeData($value) . ' ';
+    }
+
+    $this->sql = substr($this->sql, 0, -1);
+    return $this;
+  }
+
+  public function DELETE($table) {
+    $this->sql = "DELETE FROM " . $this->sanitizeData($table);
+    return $this;
+  }
+
+  public function INNER_JOIN($table) {
+      $this->sql .= " INNER JOIN " . $table;
+      return $this;
+  }
+
+  public function LEFT_OUTER_JOIN($tableName) {
+    $this->sql .= " LEFT OUTER JOIN " . $tableName;
+    return $this;
+  }
+
+  public function RIGHT_OUTER_JOIN($tableName) {
+    $this->sql .= " RIGHT OUTER JOIN " . $tableName;
+    return $this;
+  }
+
+  public function USING($joinVar) {
+    $this->sql .= " USING(" . $joinVar . ")";
+    return $this;
+  }
+
   public function go() {
     return $this->sql;
   }
