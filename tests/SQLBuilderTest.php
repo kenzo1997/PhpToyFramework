@@ -89,5 +89,16 @@ final class SQLBuilderTest extends TestCase {
 
       $this->assertEquals($res, "SELECT * FROM users RIGHT OUTER JOIN clubs USING(name)");
     }
+
+    public function functiontestFullOuterjoinStatemenet(): void {
+      $sql = new SQLBuilder();
+      $res = $sql->SELECT('users')
+                 ->FUlL_OUTER_JOIN('clubs')
+                 ->ON('name')
+                 ->go();
+
+      $this->assertEquals($res, "SELECT * FROM users RIGHT OUTER JOIN clubs ON(name = sname)");
+    }
+
 }
 ?>

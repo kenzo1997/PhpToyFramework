@@ -70,18 +70,28 @@ class SQLBuilder {
       return $this;
   }
 
-  public function LEFT_OUTER_JOIN($tableName) {
-    $this->sql .= " LEFT OUTER JOIN " . $tableName;
+  public function LEFT_OUTER_JOIN($table) {
+    $this->sql .= " LEFT OUTER JOIN " . $table;
     return $this;
   }
 
-  public function RIGHT_OUTER_JOIN($tableName) {
-    $this->sql .= " RIGHT OUTER JOIN " . $tableName;
+  public function RIGHT_OUTER_JOIN($table) {
+    $this->sql .= " RIGHT OUTER JOIN " . $table;
+    return $this;
+  }
+
+  public function FULL_OUTER_JOIN($table) {
+    $this->sql .= " FULL OUTER JOIN " . $table;
     return $this;
   }
 
   public function USING($joinVar) {
     $this->sql .= " USING(" . $joinVar . ")";
+    return $this;
+  }
+
+  public function ON($joinVar1, $joinVar2) {
+    $this->sql .= " ON(" . $joinVar1 . "=" . $joinVar2 . ")";
     return $this;
   }
 
