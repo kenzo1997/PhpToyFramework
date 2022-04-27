@@ -12,7 +12,8 @@
   },
   "scripts": {
     "insall": "composer install --prefer-dist --no-progress",
-    "test": "./vendor/bin/phpunit tests"
+    "test": "./vendor/bin/phpunit tests",
+    "reset": "composer dump-autoload -o"
   },
   "license": "MIT"
 }

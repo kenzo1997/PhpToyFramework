@@ -1,7 +1,5 @@
 <?php
-include "Router.php";
-include 'Request.php';
-include 'Response.php';
+declare(strict_types=1);
 
 /**
  * Core
@@ -10,8 +8,10 @@ include 'Response.php';
  * @author   Kenzo Coenaerts
  */
 class Core {
-  public function __construct() {
+  private $router;
 
+  public function __construct($router) {
+    $this->router = $router;
   }
 
   /**
