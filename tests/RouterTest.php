@@ -2,7 +2,7 @@
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
-final class RouterTests extends TestCase {
+final class RouterTest extends TestCase {
   public function testDefaultsRoute(): void {
     $router = new Router();
     $this->assertEquals(
