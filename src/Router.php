@@ -32,7 +32,7 @@ class Router {
   *
   * @param string path
   **/
-  public function route($fullPath) {
+  public function route($fullPath, $middelwares=[]) {
     $parts = explode('/', $fullPath);
     $name = array_shift($parts);
 
