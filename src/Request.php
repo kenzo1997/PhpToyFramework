@@ -9,10 +9,18 @@ class Request {
   }
 
   public function setParams($name, $value) {
+    if($name==null or $name=="")
+      throw new Exception('param name can not be empty or null');
+
     $this->params[$name] = $value;
   }
 
   public function getParam($name) {
+    if($name==null or $name=="")
+      throw new Exception('param name can not be empty or null');
+    else if(!array_key_exists($name, $this->params))
+      throw new Exception('param key does not exsits: ' . $name);
+
     return $this->params[$name];
   }
 
