@@ -33,6 +33,9 @@ class Router {
   * @param string path
   **/
   public function route($fullPath, $middelwares=[]) {
+    if($fullPath == null && $fullPath == "")
+      throw new Exception('Path can not be nulll or empty');
+
     $parts = explode('/', $fullPath);
     $name = array_shift($parts);
 

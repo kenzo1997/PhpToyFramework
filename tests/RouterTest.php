@@ -29,6 +29,18 @@ final class RouterTest extends TestCase {
     );
   }
 
+  public function testAddRouteThrowsErrorIfNull(): void {
+    $this->expectException(Exception::class);
+    $router = new Router();
+    $router->route(null);
+  }
+
+  public function testAddRouteThrowsErrorIfEmpty(): void {
+    $this->expectException(Exception::class);
+    $router = new Router();
+    $router->route('');
+  }
+
   public function testGetParams(): void {
     $router = new Router();
     $router->route('user/:id');
