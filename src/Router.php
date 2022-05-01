@@ -48,8 +48,6 @@ class Router {
       //$controller = new $class();
       $this->routes[$name] = $class;
     }
-
-    return $this;
   }
 
   public function getRouteParams(){

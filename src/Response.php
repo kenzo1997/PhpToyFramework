@@ -31,6 +31,10 @@ class Response {
       echo json_encode($data);
     }
 
+    public function redirect() {
+      //TODO
+    }
+
     public function error($msg, $status=502) {
       $data = [
         'success' => false,
