@@ -33,7 +33,7 @@ class Core {
         $uri[$i]
       );
     }
-
+    
     $this->methodCaller($controller, $_SERVER['REQUEST_METHOD'], $uri);
   }
 
