@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 namespace lib\router;
+
 /**
  * Router
  *
  * @package  router
  * @author   Kenzo Coenaerts
  */
-
 class Router {
   private $routes = [];
   private $params = [];
@@ -34,7 +34,7 @@ class Router {
   **/
   public function route($fullPath, $middelwares=[]) {
     if($fullPath == null && $fullPath == "")
-      throw new \Exception('Path can not be nulll or empty');
+      throw new RouterException('Path can not be nulll or empty');
 
     $parts = explode('/', $fullPath);
     $name = array_shift($parts);

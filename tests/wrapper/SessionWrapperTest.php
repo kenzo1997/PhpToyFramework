@@ -1,8 +1,8 @@
 <?php
+/*
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use \lib\wrapper\SessionWrapper;
-/*
 final class SessionWrapperTest extends TestCase {
   public function testSessionWrapper(): void {
     $session = new SessionWrapper();
@@ -13,4 +13,5 @@ final class SessionWrapperTest extends TestCase {
     );
   }
 }
+*/
 ?>
