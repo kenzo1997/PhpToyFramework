@@ -3,9 +3,9 @@
   "description": "php toy framework",
   "type": "library",
   "autoload": {
-      "classmap": [
-          "src/"
-      ]
+    "psr-4": {
+      "lib\\": "lib/"
+    }
   },
   "require-dev": {
       "phpunit/phpunit": "^9"

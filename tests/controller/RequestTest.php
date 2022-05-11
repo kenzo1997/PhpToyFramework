@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
+use \lib\controller\Request;
 
 final class RequestTest extends TestCase {
   public function testSetParams(): void {
@@ -17,10 +18,10 @@ final class RequestTest extends TestCase {
   }
 
   public function testSetParamsThrowsErrorNameEmpty(): void {
-    $this->expectException(Exception::class);
-    $request = new Request();
-    $request->setParams("", 4);
-  }
+  $this->expectException(Exception::class);
+  $request = new Request();
+  $request->setParams("", 4);
+}
 
   public function testSetParamsThrowsErrorNameNull(): void {
     $this->expectException(Exception::class);
@@ -49,4 +50,4 @@ final class RequestTest extends TestCase {
     $request->getParam('q');
   }
 }
- ?>
+?>

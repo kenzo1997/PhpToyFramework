@@ -1,13 +1,14 @@
 <?php
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-
-final class SessionWrapper extends TestCase {
+use \lib\wrapper\SessionWrapper;
+/*
+final class SessionWrapperTest extends TestCase {
   public function testSessionWrapper(): void {
     $session = new SessionWrapper();
-    $session->user = 'kenzo';
+    $session->set('user', 'kenzo');
     $this->assertEquals(
-      $session->user,
+      $session->get('user'),
       "kenzo"
     );
   }

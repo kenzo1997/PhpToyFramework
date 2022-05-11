@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
+use \lib\db\SQLBuilder;
 
 final class SQLBuilderTest extends TestCase {
     public function testSelectAllFromTable(): void {
@@ -99,6 +101,5 @@ final class SQLBuilderTest extends TestCase {
 
       $this->assertEquals($res, "SELECT * FROM users RIGHT OUTER JOIN clubs ON(name = sname)");
     }
-
 }
 ?>

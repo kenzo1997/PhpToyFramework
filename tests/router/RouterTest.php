@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
+use \lib\router\Router;
 
 final class RouterTest extends TestCase {
   public function testDefaultsRoute(): void {
@@ -35,8 +36,9 @@ final class RouterTest extends TestCase {
     $router->route(null);
   }
 
+
   public function testAddRouteThrowsErrorIfEmpty(): void {
-    $this->expectException(Exception::class);
+    $this->expectException(\Exception::class);
     $router = new Router();
     $router->route('');
   }
